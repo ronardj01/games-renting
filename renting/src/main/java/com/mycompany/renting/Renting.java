@@ -1,8 +1,4 @@
-
 package com.mycompany.renting;
-
-import java.util.Arrays;
-import ui.PantallaPrincipal;
 
 /**
  *
@@ -11,12 +7,14 @@ import ui.PantallaPrincipal;
 public class Renting {
 
     public static void main(String[] args) {
-        PantallaPrincipal menu = new PantallaPrincipal();
-        String[] mPp;
-        mPp = menu.pantallaPrincipal();
-        for (String mPp1 : mPp) {
-            System.out.println(mPp1);
-        }
-        //System.out.println(Arrays.toString(mPp));
+
+        // CADENAS FORMATEADAS PARA EL NOMBRE DE LA COMPAÑIA Y LOS ENCABEZADOS
+        String companyName = String.format("\n%50s\n", "*** O V E R L O R D ***");
+        String bienvenida = String.format("%70s\n", "Bienvenido a su Tienda favorita de Alquiler de Video Juegos");
+        String encabezadoVistaConsola = String.format("%-30s %-14s Estanteria\n", "Juegos", "Unidades");
+        
+        System.out.println(companyName);
+        System.out.println(bienvenida);
+        System.out.println(encabezadoVistaConsola);
     }
 }
