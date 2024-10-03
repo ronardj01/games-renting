@@ -17,6 +17,6 @@ public class Renting {
         System.out.println(companyName);
         System.out.println(bienvenida);
         System.out.println(encabezadoVistaConsola);
-        System.out.println(encabezadoRentarJuego);
+        System.out.println(encabezadoCodigoJuego);
     }
 }
