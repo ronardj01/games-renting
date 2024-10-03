@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package main.renting;
+package com.mycompany.renting;
 
 /**
  *
- * @author tonym
+ * @author ronar
  */
 public class Renting {
 
