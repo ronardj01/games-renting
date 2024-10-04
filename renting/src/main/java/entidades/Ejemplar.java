@@ -63,7 +63,7 @@ public class Ejemplar {
     public void setRentado(boolean rentado) {
         this.rentado = rentado;
     }
-
+    // Getters de del id y FK
     public int getIdEjemplar() {
         return idEjemplar;
     }
