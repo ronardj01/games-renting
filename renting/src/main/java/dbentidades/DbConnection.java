@@ -3,7 +3,7 @@ package dbentidades;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement; 
+import java.sql.Statement;
 
 /**
  *
@@ -16,10 +16,9 @@ public abstract class DbConnection {
     private static final String DATABASE = "overlord";
     private static final String USER = System.getenv("DB_USER_PRUEBA");
     private static final String PASS = System.getenv("DB_PASS_PRUEBA");
-    
+
     //CONEXION DB
-    private static final Connection CONNECTION = DbConnection.getConnection();
-    
+    public static Statement STATEMENT;
 
     //Métodos
     //MAKE CONNECTION
@@ -29,31 +28,12 @@ public abstract class DbConnection {
         try {
 
             connection = DriverManager.getConnection(DbConnection.URL + "/" + DbConnection.DATABASE, DbConnection.USER, DbConnection.PASS);
+            STATEMENT = connection.createStatement();
             System.out.println("Data Base Connection OK");
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return connection;
-    }
-
-    //CLOSE CONNECTION 
-    public static void closeConnection() throws SQLException {
-        DbConnection.CONNECTION.close();
-        System.out.println("conexion cerrada.");
-
-    }
-
-    //GET STATEMENT
-    public static Statement getStatement() {
-        Statement statement = null;
-
-        try {
-            statement = CONNECTION.createStatement();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return statement;
     }
 }
