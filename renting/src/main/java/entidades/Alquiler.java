@@ -76,5 +76,5 @@ public class Alquiler {
     public String toString() {
         return "Alquiler{" + "idalquiler=" + idalquiler + ", fecha_renta=" + fecha_renta + ", fecha_devolucion=" + fecha_devolucion + ", fecha_retorno=" + fecha_retorno + ", id_ejemplar=" + id_ejemplar + ", id_usuario=" + id_usuario + '}';
     }
-
+    
 }
