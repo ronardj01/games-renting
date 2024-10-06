@@ -16,15 +16,16 @@ public class DbUsuario {
     private static Statement usuarioStatement = DbConnection.STATEMENT;
 
     public static void getUsuario(String correo, String password) {
+        // Usuario usuario = Usuario();
         ResultSet resultado;
 
         String query = "SELECT * FROM usuarios WHERE correo = 'correo'"
-                + " AND password = 'password'"; 
+                + " AND password = 'password'";
         try {
             resultado = usuarioStatement.executeQuery(query);
-            while(resultado.next()){
+            while (resultado.next()) {
                 System.out.println("Inicio de sesion exitoso");
-        }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
