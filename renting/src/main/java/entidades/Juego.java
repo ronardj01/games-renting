@@ -45,11 +45,11 @@ public class Juego {
     }
 
     public int getIdJuego() {
-        return idJuego;
+        return idjuego;
     }
 
     @Override
     public String toString() {
-        return "Juego{" + "idJuego=" + idJuego + ", titulo=" + titulo + ", genero=" + genero + ", estanteria=" + estanteria + '}';
+        return "Juego{" + "idJuego=" + idjuego + ", titulo=" + titulo + ", genero=" + genero + ", estanteria=" + estanteria + '}';
     }
 }
