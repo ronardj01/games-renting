@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entidades;
 
 /**
@@ -10,13 +6,15 @@ package entidades;
  */
 public class Juego {
 
-    private int idJuego;
+    private int idjuego;
     private String titulo;
     private String genero;
+    private String estanteria;
 
-    public Juego(String titulo, String genero) {
+    public Juego(String titulo, String genero, String estanteria) {
         this.titulo = titulo;
         this.genero = genero;
+        this.estanteria = estanteria;
     }
 
     public Juego() {
@@ -38,13 +36,20 @@ public class Juego {
         this.genero = genero;
     }
 
+    public String getEstanteria() {
+        return this.estanteria;
+    }
+
+    public void setEstanteria(String estanteria) {
+        this.estanteria = estanteria;
+    }
+
     public int getIdJuego() {
         return idJuego;
     }
 
     @Override
     public String toString() {
-        return "Juego{" + "idJuego=" + idJuego + ", titulo=" + titulo + ", genero=" + genero + '}';
+        return "Juego{" + "idJuego=" + idJuego + ", titulo=" + titulo + ", genero=" + genero + ", estanteria=" + estanteria + '}';
     }
-
 }
