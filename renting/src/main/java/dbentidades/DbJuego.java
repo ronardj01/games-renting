@@ -1,6 +1,7 @@
 
 package dbentidades;
 
+import entidades.Juego;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -22,5 +23,21 @@ public abstract class DbJuego {
             }
         } catch (Exception e) {
         }
+    }
+    public static String insertNewJuego(Juego miJuego){
+        String resultado;
+        
+        String query = "INSERT INTO `overlord`.`juegos` (`titulo`, `genero`, `estanteria`) "
+                + "VALUES ('" + miJuego.getTitulo()
+                + "', '"+ miJuego.getGenero()
+                + "', '" + miJuego.getEstanteria()+ "')";
+        try {
+            juegoStatement.executeUpdate(query);
+            resultado = "Juego insertado";
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultado = "Juego no insertado";
+        }
+    return resultado;
     }
 }
