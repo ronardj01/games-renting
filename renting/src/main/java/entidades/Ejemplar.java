@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package entidades;
 
 /**
@@ -10,75 +7,60 @@ package entidades;
  */
 public class Ejemplar {
 
-    private int idEjemplar;
+    private int idejemplar;
     private String codigo;
-    private int estanteriaC;
-    private int estanteriaF;
-    private boolean rentado;
-    private int idConsola;
-    private int idJuego;
+    private int rentado;
+    private int id_consola;
+    private int id_juego;
 
-    //CONSTANTE BOOLEAN
-    private static final boolean RENTADO_POR_DEFECTO = false;
+    //CONSTANTE 
+    private static final int RENTADO_POR_DEFECTO = 0;
 
     public Ejemplar() {
         this.rentado = RENTADO_POR_DEFECTO;
     }
 
-    public Ejemplar(String codigo, int estanteriaC, int estanteriaF, boolean rentado) {
+    public Ejemplar(String codigo, int id_consola, int id_juego) {
         this.codigo = codigo;
-        this.estanteriaC = estanteriaC;
-        this.estanteriaF = estanteriaF;
         this.rentado = RENTADO_POR_DEFECTO;
+        this.id_consola = id_consola;
+        this.id_juego = id_juego;
     }
 
     public String getCodigo() {
-        return codigo;
+        return this.codigo;
     }
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    public int getEstanteriaC() {
-        return estanteriaC;
-    }
-
-    public void setEstanteriaC(int estanteriaC) {
-        this.estanteriaC = estanteriaC;
-    }
-
-    public int getEstanteriaF() {
-        return estanteriaF;
-    }
-
-    public void setEstanteriaF(int estanteriaF) {
-        this.estanteriaF = estanteriaF;
-    }
-
-    public boolean isRentado() {
+    public int isRentado() {
         return rentado;
     }
 
-    public void setRentado(boolean rentado) {
+    public void setRentado(int rentado) {
         this.rentado = rentado;
     }
+    
     // Getters de del id y FK
     public int getIdEjemplar() {
-        return idEjemplar;
+        return idejemplar;
     }
 
     public int getIdConsola() {
-        return idConsola;
+        return id_consola;
     }
 
     public int getIdJuego() {
-        return idJuego;
+        return id_juego;
     }
 
     @Override
     public String toString() {
-        return "Ejemplar{" + "idEjemplar=" + idEjemplar + ", codigo=" + codigo + ", estanteriaC=" + estanteriaC + ", estanteriaF=" + estanteriaF + ", rentado=" + rentado + ", idConsola=" + idConsola + ", idJuego=" + idJuego + '}';
+        return "Ejemplar{" + "idEjemplar=" + idejemplar + ", codigo=" + codigo + ", rentado=" + rentado + ", id_consola=" + id_consola + ", id_juego=" + id_juego + '}';
     }
+
+    
 
 }
