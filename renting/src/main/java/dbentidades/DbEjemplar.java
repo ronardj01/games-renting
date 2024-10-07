@@ -12,25 +12,24 @@ public class DbEjemplar {
 
     private static Statement ejemplarStatement = DbConnection.STATEMENT;
 
-    public static void getEjemplarByName(String name) {
-        //Ejemplar miEjemplar = new Ejemplar();
+    public static Ejemplar getEjemplarByCodigo(String codigo) {
+        Ejemplar miEjemplar = new Ejemplar();
         ResultSet resultado;
-        String query = "SELECT j.titulo, c.nombre, e.estanteriaC, e.estanteriaF FROM ejemplares e"
-                + " JOIN juegos j ON e.id_juego = j.idjuego"
-                + " JOIN consolas c ON e.id_consola = c.idconsola"
-                + " WHERE j.titulo LIKE '" + name + "%' AND e.rentado = 0;";
+        String query = "SELECT e.idejemplar, e.codigo, e.rentado, e.id_consola, e.id_juego FROM ejemplares e"
+                + " WHERE e.codigo = '" + codigo + "'";
 
         try {
             resultado = ejemplarStatement.executeQuery(query);
             while (resultado.next()) {
-                System.out.println(resultado.getString("titulo"));
-                System.out.println(resultado.getString("nombre"));
-                System.out.println(resultado.getString("estanteriaC")); 
-                System.out.println(resultado.getString("estanteriaF"));
+                miEjemplar.setIdejemplar(resultado.getInt("idejemplar"));
+                miEjemplar.setCodigo(resultado.getString("codigo"));
+                miEjemplar.setRentado(resultado.getInt("rentado"));
+                miEjemplar.setId_consola(resultado.getInt("id_consola"));
+                miEjemplar.setId_juego(resultado.getInt("id_juego"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //return miEjemplar;
+        return miEjemplar;
     }
 }

@@ -56,6 +56,19 @@ public class Ejemplar {
         return id_juego;
     }
 
+    public void setIdejemplar(int idejemplar) {
+        this.idejemplar = idejemplar;
+    }
+
+    public void setId_consola(int id_consola) {
+        this.id_consola = id_consola;
+    }
+
+    public void setId_juego(int id_juego) {
+        this.id_juego = id_juego;
+    }
+    
+
     @Override
     public String toString() {
         return "Ejemplar{" + "idEjemplar=" + idejemplar + ", codigo=" + codigo + ", rentado=" + rentado + ", id_consola=" + id_consola + ", id_juego=" + id_juego + '}';
