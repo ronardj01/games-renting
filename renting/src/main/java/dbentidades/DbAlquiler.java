@@ -12,8 +12,10 @@ import java.sql.Statement;
  * @author tonym
  */
 public class DbAlquiler {
+
     private static Statement alquiler = DbConnection.STATEMENT;
-    public static void getAlquiler(String codigo){
+
+    public static void getAlquiler(String codigo) {
         // Alquiler alquiler = Alquiler();
         ResultSet resultado;
         String query = "SELECT j.titulo, c.nombre, e.codigo, a.fecha_renta, "
@@ -28,7 +30,7 @@ public class DbAlquiler {
                 + "group by j.titulo, c.nombre, e.codigo, a.fecha_renta, a.fecha_devolucion, u.nombre, u.apellidos";
         try {
             resultado = alquiler.executeQuery(query);
-            while(resultado.next()){
+            while (resultado.next()) {
                 System.out.println(resultado.getString("titulo"));
                 System.out.println(resultado.getString("nombre"));
                 System.out.println(resultado.getString("codigo"));
@@ -36,7 +38,7 @@ public class DbAlquiler {
                 System.out.println(resultado.getString("fecha_devolucion"));
                 System.out.println(resultado.getString("nombre"));
                 System.out.println(resultado.getString("apellidos"));
-            
+
             }
         } catch (Exception e) {
             e.printStackTrace();

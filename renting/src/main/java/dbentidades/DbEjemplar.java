@@ -3,6 +3,7 @@ package dbentidades;
 import entidades.Ejemplar;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -31,5 +32,32 @@ public class DbEjemplar {
             e.printStackTrace();
         }
         return miEjemplar;
+    }
+
+    public static ArrayList<Ejemplar> getEjemplarByRent(int rentado) {
+        ArrayList<Ejemplar> misEjemplares = new ArrayList<>();
+
+        ResultSet resultado;
+        String query = "SELECT e.idejemplar, e.codigo, e.rentado, e.id_consola, e.id_juego FROM ejemplares e"
+                + " WHERE e.rentado = " + rentado;
+
+        try {
+            resultado = ejemplarStatement.executeQuery(query);
+            while (resultado.next()) {
+                Ejemplar miEjemplar = new Ejemplar();
+
+                miEjemplar.setIdejemplar(resultado.getInt("idejemplar"));
+                miEjemplar.setCodigo(resultado.getString("codigo"));
+                miEjemplar.setRentado(resultado.getInt("rentado"));
+                miEjemplar.setId_consola(resultado.getInt("id_consola"));
+                miEjemplar.setId_juego(resultado.getInt("id_juego"));
+
+                misEjemplares.add(miEjemplar);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return misEjemplares;
     }
 }
