@@ -60,4 +60,23 @@ public class DbEjemplar {
         }
         return misEjemplares;
     }
+
+    /*
+    public static String insertNewEjemplar(int id_juego, String consola, String codigo) {
+        String consolaMinuscula = consola.toLowerCase();
+        int id_consola;
+        
+        switch(consolaMinuscula) {
+            case "ps5" -> id_consola = 1;
+            case "ps4" -> id_consola = 2;
+            case "nintendo" -> id_consola = 3;
+            case "xbox" -> id_consola = 4;
+            case "pc" -> id_consola = 5;
+            default -> id_consola = 0;
+        }
+        
+        Ejemplar nuevoEjemplar = new Ejemplar(codigo, id_consola, id_juego);
+        
+    }
+     */
 }
