@@ -2,6 +2,7 @@ package dbentidades;
 
 import entidades.Ejemplar;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -61,22 +62,13 @@ public class DbEjemplar {
         return misEjemplares;
     }
 
-    /*
-    public static String insertNewEjemplar(int id_juego, String consola, String codigo) {
-        String consolaMinuscula = consola.toLowerCase();
-        int id_consola;
-        
-        switch(consolaMinuscula) {
-            case "ps5" -> id_consola = 1;
-            case "ps4" -> id_consola = 2;
-            case "nintendo" -> id_consola = 3;
-            case "xbox" -> id_consola = 4;
-            case "pc" -> id_consola = 5;
-            default -> id_consola = 0;
-        }
-        
-        Ejemplar nuevoEjemplar = new Ejemplar(codigo, id_consola, id_juego);
-        
+    public static void insertNewEjemplar(Ejemplar newEjemplar) throws SQLException {
+        String query = "INSERT INTO `overlord`.`ejemplares` (`codigo`, `rentado`, `id_consola`, `id_juego`)"
+                + " VALUES ('" + newEjemplar.getCodigo() + "', '"
+                + newEjemplar.isRentado() + "', '"
+                + newEjemplar.getIdConsola() + "', '"
+                + newEjemplar.getIdJuego() + "')";
+
+        ejemplarStatement.executeUpdate(query);
     }
-     */
 }
