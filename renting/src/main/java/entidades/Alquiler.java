@@ -1,5 +1,7 @@
 package entidades;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author ronar
@@ -8,9 +10,9 @@ public class Alquiler {
 
     //atributos
     private int idalquiler;
-    private String fecha_renta;
-    private String fecha_devolucion;
-    private String fecha_retorno;
+    private LocalDate fecha_renta;
+    private LocalDate fecha_devolucion;
+    private LocalDate fecha_retorno;
     private int id_ejemplar;
     private int id_usuario;
 
@@ -18,7 +20,7 @@ public class Alquiler {
     public Alquiler() {
     }
 
-    public Alquiler(String fecha_renta, String fecha_devolucion, int id_ejemplar, int id_usuario) {
+    public Alquiler(LocalDate fecha_renta, LocalDate fecha_devolucion, int id_ejemplar, int id_usuario) {
         this.fecha_renta = fecha_renta;
         this.fecha_devolucion = fecha_devolucion;
         this.id_ejemplar = id_ejemplar;
@@ -34,15 +36,15 @@ public class Alquiler {
         this.idalquiler = idalquiler;
     }
 
-    public String getFecha_renta() {
+    public LocalDate getFecha_renta() {
         return fecha_renta;
     }
 
-    public String getFecha_devolucion() {
+    public LocalDate getFecha_devolucion() {
         return fecha_devolucion;
     }
 
-    public String getFecha_retorno() {
+    public LocalDate getFecha_retorno() {
         return fecha_retorno;
     }
 
@@ -55,15 +57,15 @@ public class Alquiler {
     }
 
     //setters
-    public void setFecha_renta(String fecha_renta) {
+    public void setFecha_renta(LocalDate fecha_renta) {
         this.fecha_renta = fecha_renta;
     }
 
-    public void setFecha_devolucion(String fecha_devolucion) {
+    public void setFecha_devolucion(LocalDate fecha_devolucion) {
         this.fecha_devolucion = fecha_devolucion;
     }
 
-    public void setFecha_retorno(String fecha_retorno) {
+    public void setFecha_retorno(LocalDate fecha_retorno) {
         this.fecha_retorno = fecha_retorno;
     }
 

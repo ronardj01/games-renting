@@ -7,6 +7,7 @@ package dbentidades;
 import entidades.Alquiler;
 import entidades.Usuario;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,9 +29,9 @@ public class DbAlquiler {
             resultado = alquiler.executeQuery(query);
             while (resultado.next()) {
                 miAlquiler.setIdalquiler(resultado.getInt("idalquiler"));
-                miAlquiler.setFecha_renta(resultado.getString("fecha_renta"));
-                miAlquiler.setFecha_devolucion(resultado.getString("fecha_devolucion"));
-                miAlquiler.setFecha_retorno(resultado.getString("fecha_retorno"));
+                miAlquiler.setFecha_renta(LocalDate.parse(resultado.getString("fecha_renta")));
+                miAlquiler.setFecha_devolucion(LocalDate.parse(resultado.getString("fecha_devolucion")));
+                miAlquiler.setFecha_retorno(LocalDate.parse(resultado.getString("fecha_retorno")));
                 miAlquiler.setId_ejemplar(resultado.getInt("id_ejemplar"));
                 miAlquiler.setId_usuario(resultado.getInt("id_usuario"));
             }
@@ -48,9 +49,9 @@ public class DbAlquiler {
             resultado = alquiler.executeQuery(query);
             while (resultado.next()) {
                 miAlquiler.setIdalquiler(resultado.getInt("idalquiler"));
-                miAlquiler.setFecha_renta(resultado.getString("fecha_renta"));
-                miAlquiler.setFecha_devolucion(resultado.getString("fecha_devolucion"));
-                miAlquiler.setFecha_retorno(resultado.getString("fecha_retorno"));
+                miAlquiler.setFecha_renta(LocalDate.parse(resultado.getString("fecha_renta")));
+                miAlquiler.setFecha_devolucion(LocalDate.parse(resultado.getString("fecha_devolucion")));
+                miAlquiler.setFecha_retorno(LocalDate.parse(resultado.getString("fecha_retorno")));
                 miAlquiler.setId_ejemplar(resultado.getInt("id_ejemplar"));
                 miAlquiler.setId_usuario(resultado.getInt("id_usuario"));
             }
@@ -70,10 +71,10 @@ public class DbAlquiler {
         try {
             resultado = alquiler.executeQuery(query);
             while (resultado.next()) {
-                miAlquiler.setIdalquiler(resultado.getInt("idalquiler"));
-                miAlquiler.setFecha_renta(resultado.getString("fecha_renta"));
-                miAlquiler.setFecha_devolucion(resultado.getString("fecha_devolucion"));
-                miAlquiler.setFecha_retorno(resultado.getString("fecha_retorno"));
+                 miAlquiler.setIdalquiler(resultado.getInt("idalquiler"));
+                miAlquiler.setFecha_renta(LocalDate.parse(resultado.getString("fecha_renta")));
+                miAlquiler.setFecha_devolucion(LocalDate.parse(resultado.getString("fecha_devolucion")));
+                miAlquiler.setFecha_retorno(LocalDate.parse(resultado.getString("fecha_retorno")));
                 miAlquiler.setId_ejemplar(resultado.getInt("id_ejemplar"));
                 miAlquiler.setId_usuario(resultado.getInt("id_usuario"));
             }
@@ -81,5 +82,16 @@ public class DbAlquiler {
             e.printStackTrace();
         }
         return miAlquiler;
+    }
+    public static void insertNewAlquiler(Alquiler newAlquiler) throws SQLException {
+        String query = "INSERT INTO `overlord`.`alquileres` (`fecha_renta`, `fecha_devolucion`, `id_ejemplar`, `id_usuario`) "
+                + " VALUES ('" + newAlquiler.getFecha_renta() + "', '"
+                + newAlquiler.getFecha_devolucion() + "', '"
+                + newAlquiler.getId_ejemplar() + "', '"
+                + newAlquiler.getId_usuario() + "')";
+
+
+        
+        alquiler.executeUpdate(query);
     }
 }
