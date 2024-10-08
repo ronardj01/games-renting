@@ -10,14 +10,14 @@ public abstract class PantallaConsultaPrincipal {
     
     public static String[] getMenu() {
         String[] menu = {
-            "0. ->> Buscar por nombre. ",
-            "1. ->> Juegos de PS4. ",
-            "2. ->> Juegos de PS5.",
-            "3. ->> Juegos de XBOX.",
-            "4. ->> Juegos de Nintendo.",
-            "5. ->> Juegos de PC.",
-            "6. ->> Juegos Consolas Retro.",
-            "7. ->> Volver al Menú Principal."};
+            "1. ->> Buscar por nombre. ",
+            "2. ->> Juegos de PS4. ",
+            "3. ->> Juegos de PS5.",
+            "4. ->> Juegos de XBOX.",
+            "5. ->> Juegos de Nintendo.",
+            "6. ->> Juegos de PC.",
+            "7. ->> Juegos Consolas Retro.",
+            "0. ->> Volver al Menú Principal."};
         return menu;
     }
 

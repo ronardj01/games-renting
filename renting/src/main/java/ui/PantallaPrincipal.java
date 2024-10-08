@@ -6,7 +6,7 @@ public abstract class PantallaPrincipal {
     public static final String BIENVENIDA = "Bienvenido a su Tienda favorita de Alquiler de Video Juegos";
 
     public static String[] getMenuPrincipal() {
-        String[] menu = {"1 ->> Consultar Lista de Video Juegos.", "2 ->> Rentar Video Juegos.", "3 ->> Retornar Video Juegos."};
+        String[] menu = {"1 ->> Consultar Lista de Video Juegos.", "2 ->> Rentar Video Juegos.", "3 ->> Retornar Video Juegos.", "4 ->> SALIR <<-."};
         return menu;
     }
 }

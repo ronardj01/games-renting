@@ -26,7 +26,7 @@ public abstract class DbJuego {
         }
     }
 
-    public static Juego getBusquedaPorNombre(String titulo) {
+    public static Juego BusquedaPorNombre(String titulo) {
         Juego miJuego = new Juego();
         ResultSet resultado;
         String query = "select idjuego, titulo, genero, estanteria from juegos where titulo like '" + titulo + "%'";
