@@ -30,6 +30,10 @@ public class Alquiler {
         return idalquiler;
     }
 
+    public void setIdalquiler(int idalquiler) {
+        this.idalquiler = idalquiler;
+    }
+
     public String getFecha_renta() {
         return fecha_renta;
     }
