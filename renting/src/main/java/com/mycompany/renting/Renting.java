@@ -1,8 +1,12 @@
 package com.mycompany.renting;
 
-import dbentidades.DbJuego;
+import dbentidades.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import ui.*;
+import vistas.*;
 
 /**
  *
@@ -12,6 +16,9 @@ public class Renting {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        //CREAR CONEXIÓN
+        Connection miConexion = DbConnection.getConnection();
 
         //CADENAS FORMATEADAS
         String companyName = String.format("\n%50s\n", "*** " + PantallaPrincipal.COMPANY_NAME + " ***");
@@ -31,6 +38,8 @@ public class Renting {
             switch (opcion) {
                 //PRINCIPAL BUSQUEDA
                 case 1 -> {
+                    System.out.println(companyName);
+
                     getMenuMain(PantallaConsultaPrincipal.ENCABEZADO, PantallaConsultaPrincipal.getMenu());
                     System.out.print("favor introducir una opcion de busqueda: ");
                     opcion = scanner.nextInt();
@@ -38,21 +47,31 @@ public class Renting {
                     switch (opcion) {
                         //BUSQUEDA POR NOMBRE
                         case 1 -> {
+                            System.out.println(companyName);
+
                             System.out.print("Favor introducir nombre de video Juego: ");
                             nombre = scanner.nextLine();
                             //BUSCAR EJEMPLAR POR NOMBRE EN DB
-             
-                            
                             String[] encabezadoArray = PantallaBusquedaNombre.ENCABEZADO_ARRAY;
-                            String busquedaNombre = String.format("\n%-30s %-15s %-15s %s\n",
-                                    encabezadoArray[0], encabezadoArray[1], encabezadoArray[2], encabezadoArray[3]);
+                            String busquedaNombre = String.format("\n| %-30s | %-18s | %-15s | %s |",
+                                    encabezadoArray[0], encabezadoArray[1],
+                                    encabezadoArray[2], encabezadoArray[3]);
+                            System.out.print("------------------------------------------------------------------------------------");
                             System.out.println(busquedaNombre);
-                            
+                            System.out.print("------------------------------------------------------------------------------------");
+
+                            //IMPRIMIR DESDE DB LOS EJEMPLARES NO RENTADOS POR NOMBRE
+                            ArrayList<VistaEjemplar> ejemplaresNombre = DbVistaEjemplar.getVistaEjemplares(nombre);
+                            for (int i = 0; i < ejemplaresNombre.size(); i++) {
+                                System.out.printf("\n| %-30s | %-18s | %-15s | %4d     |",
+                                        ejemplaresNombre.get(i).getTitulo(),
+                                        ejemplaresNombre.get(i).getConsola(),
+                                        ejemplaresNombre.get(i).getEstanteria(),
+                                        ejemplaresNombre.get(i).getUnidades());
+                                System.out.print("\n------------------------------------------------------------------------------------");
+                            }
+
                             getMenuMain(PantallaBusquedaNombre.ENCABEZADO, PantallaBusquedaNombre.getMenu());
-                            
-                            
-                            
-                            
 
                         }
                     }
@@ -62,12 +81,14 @@ public class Renting {
         } while (opcion != 4);
 
         System.out.println("Hast luego!!!");
-        /*
-        String encabezado = String.format("%70s\n", "Bienvenido a su Tienda favorita de Alquiler de Video Juegos");
-        String encabezadoVistaConsola = String.format("%-30s %-14s Estanteria\n", "Juegos", "Unidades");
-        String encabezadoCodigoJuego = String.format("\n%65s", "Favor introducir el código del video juego: over-234p");
-         */
 
+        try {
+            miConexion.close();
+            System.out.println("conexión cerrada exitosamente!!!!");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("no fue posible cerrar la conexión.");
+        }
     }
 
     public static void getMenuMain(String encabezadoMenu, String[] menu) {
