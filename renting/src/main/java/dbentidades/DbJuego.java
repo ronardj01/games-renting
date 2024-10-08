@@ -1,8 +1,8 @@
-
 package dbentidades;
 
 import entidades.Juego;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -10,21 +10,23 @@ import java.sql.Statement;
  * @author ronar
  */
 public abstract class DbJuego {
-    private static Statement juegoStatement = DbConnection.STATEMENT; 
-    
+
+    private static Statement juegoStatement = DbConnection.STATEMENT;
+
     public static void getJuego() {
         ResultSet resultado;
         String query = "SELECT * FROM juegos";
-        
+
         try {
             resultado = juegoStatement.executeQuery(query);
-            while(resultado.next()){
+            while (resultado.next()) {
                 System.out.println(resultado.getString("titulo"));
             }
         } catch (Exception e) {
         }
     }
-     public static Juego getBusquedaPorNombre(String titulo) {
+
+    public static Juego getBusquedaPorNombre(String titulo) {
         Juego miJuego = new Juego();
         ResultSet resultado;
         String query = "select idjuego, titulo, genero, estanteria from juegos where titulo like '" + titulo + "%'";
@@ -36,14 +38,15 @@ public abstract class DbJuego {
                 miJuego.setTitulo(resultado.getString("titulo"));
                 miJuego.setGenero(resultado.getString("genero"));
                 miJuego.setEstanteria(resultado.getString("estanteria"));
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return miJuego;
     }
-      public static Juego getBusquedaPorId(int idjuego) {
+
+    public static Juego getBusquedaPorId(int idjuego) {
         Juego miJuego = new Juego();
         ResultSet resultado;
         String query = "select idjuego, titulo, genero, estanteria from juegos where idjuego = '" + idjuego + "'";
@@ -55,27 +58,22 @@ public abstract class DbJuego {
                 miJuego.setTitulo(resultado.getString("titulo"));
                 miJuego.setGenero(resultado.getString("genero"));
                 miJuego.setEstanteria(resultado.getString("estanteria"));
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return miJuego;
     }
-    public static String insertNewJuego(Juego miJuego){
-        String resultado;
-        
+
+    public static void insertNewJuego(Juego miJuego) throws SQLException {
+
         String query = "INSERT INTO `overlord`.`juegos` (`titulo`, `genero`, `estanteria`) "
                 + "VALUES ('" + miJuego.getTitulo()
-                + "', '"+ miJuego.getGenero()
-                + "', '" + miJuego.getEstanteria()+ "')";
-        try {
-            juegoStatement.executeUpdate(query);
-            resultado = "Juego insertado";
-        } catch (Exception e) {
-            e.printStackTrace();
-            resultado = "Juego no insertado";
-        }
-    return resultado;
+                + "', '" + miJuego.getGenero()
+                + "', '" + miJuego.getEstanteria() + "')";
+
+        juegoStatement.executeUpdate(query);
+
     }
 }
