@@ -5,6 +5,7 @@
 package dbentidades;
 
 import entidades.Alquiler;
+import entidades.Usuario;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -17,6 +18,27 @@ import java.time.format.DateTimeFormatter;
 public class DbAlquiler {
 
     private static Statement alquiler = DbConnection.STATEMENT;
+
+    public static Alquiler getPorUsuario(int id_usuario) {
+        Alquiler miAlquiler = new Alquiler();
+        ResultSet resultado;
+        String query = "SELECT idalquiler, fecha_renta, fecha_devolucion, fecha_retorno, id_ejemplar, id_usuario FROM alquileres  WHERE id_usuario = '" + id_usuario + "'";
+
+        try {
+            resultado = alquiler.executeQuery(query);
+            while (resultado.next()) {
+                miAlquiler.setIdalquiler(resultado.getInt("idalquiler"));
+                miAlquiler.setFecha_renta(resultado.getString("fecha_renta"));
+                miAlquiler.setFecha_devolucion(resultado.getString("fecha_devolucion"));
+                miAlquiler.setFecha_retorno(resultado.getString("fecha_retorno"));
+                miAlquiler.setId_ejemplar(resultado.getInt("id_ejemplar"));
+                miAlquiler.setId_usuario(resultado.getInt("id_usuario"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return miAlquiler;
+    }
 
     public static Alquiler getAlquilerPorId(int idalquiler) {
         Alquiler miAlquiler = new Alquiler();
@@ -41,7 +63,7 @@ public class DbAlquiler {
     public static Alquiler getPorDevolucion(LocalDate fechaDevolucion) {
         Alquiler miAlquiler = new Alquiler();
         ResultSet resultado;
-        
+
         // La funcion esta trabajando con datos Hardcodeados --------->getPorDevolucion()<-----------
         String fechaDevolucionStr = fechaDevolucion.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String query = "SELECT * FROM alquileres WHERE fecha_devolucion = '" + fechaDevolucionStr + "'";
