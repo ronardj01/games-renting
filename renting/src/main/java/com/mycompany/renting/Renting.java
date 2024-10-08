@@ -44,8 +44,8 @@ public class Renting {
              
                             
                             String[] encabezadoArray = PantallaBusquedaNombre.ENCABEZADO_ARRAY;
-                            String busquedaNombre = String.format("\n%-30s %-15s %s\n",
-                                    encabezadoArray[0], encabezadoArray[1], encabezadoArray[2]);
+                            String busquedaNombre = String.format("\n%-30s %-15s %-15s %s\n",
+                                    encabezadoArray[0], encabezadoArray[1], encabezadoArray[2], encabezadoArray[3]);
                             System.out.println(busquedaNombre);
                             
                             getMenuMain(PantallaBusquedaNombre.ENCABEZADO, PantallaBusquedaNombre.getMenu());

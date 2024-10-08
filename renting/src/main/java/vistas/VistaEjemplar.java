@@ -7,20 +7,20 @@ package vistas;
 public class VistaEjemplar {
     private String titulo;
     private String consola;
-    private int estanteria;
+    private String estanteria;
     private int unidades;
 
     public VistaEjemplar() {
     }
 
-    public VistaEjemplar(String titulo, String consola, int estanteria, int unidades) {
+    public VistaEjemplar(String titulo, String consola, String estanteria, int unidades) {
         this.titulo = titulo;
         this.consola = consola;
         this.estanteria = estanteria;
         this.unidades = unidades;
     }
 
-    public VistaEjemplar(String titulo, String consola, int estanteria) {
+    public VistaEjemplar(String titulo, String consola, String estanteria) {
         this.titulo = titulo;
         this.consola = consola;
         this.estanteria = estanteria;
@@ -42,11 +42,11 @@ public class VistaEjemplar {
         this.consola = consola;
     }
 
-    public int getEstanteria() {
+    public String getEstanteria() {
         return estanteria;
     }
 
-    public void setEstanteria(int estanteria) {
+    public void setEstanteria(String estanteria) {
         this.estanteria = estanteria;
     }
 
