@@ -20,6 +20,14 @@ public class Juego {
     public Juego() {
     }
 
+    public int getIdjuego() {
+        return idjuego;
+    }
+
+    public void setIdjuego(int idjuego) {
+        this.idjuego = idjuego;
+    }
+
     public String getTitulo() {
         return titulo;
     }

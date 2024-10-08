@@ -27,11 +27,12 @@ public abstract class DbJuego {
      public static Juego getBusquedaPorNombre(String titulo) {
         Juego miJuego = new Juego();
         ResultSet resultado;
-        String query = "select titulo, genero, estanteria from juegos where titulo like '" + titulo + "'";
+        String query = "select idjuego, titulo, genero, estanteria from juegos where titulo like '" + titulo + "%'";
 
         try {
             resultado = juegoStatement.executeQuery(query);
             while (resultado.next()) {
+                miJuego.setIdjuego(resultado.getInt("idjuego"));
                 miJuego.setTitulo(resultado.getString("titulo"));
                 miJuego.setGenero(resultado.getString("genero"));
                 miJuego.setEstanteria(resultado.getString("estanteria"));
@@ -45,11 +46,12 @@ public abstract class DbJuego {
       public static Juego getBusquedaPorId(int idjuego) {
         Juego miJuego = new Juego();
         ResultSet resultado;
-        String query = "select titulo, genero, estanteria from juegos where idjuego = '" + idjuego + "'";
+        String query = "select idjuego, titulo, genero, estanteria from juegos where idjuego = '" + idjuego + "'";
 
         try {
             resultado = juegoStatement.executeQuery(query);
             while (resultado.next()) {
+                miJuego.setIdjuego(resultado.getInt("idjuego"));
                 miJuego.setTitulo(resultado.getString("titulo"));
                 miJuego.setGenero(resultado.getString("genero"));
                 miJuego.setEstanteria(resultado.getString("estanteria"));
