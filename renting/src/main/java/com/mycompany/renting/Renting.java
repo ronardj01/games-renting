@@ -1,5 +1,6 @@
 package com.mycompany.renting;
 
+import ui.PantallaConsultaPrincipal;
 import ui.PantallaPrincipal;
 
 /**
@@ -19,24 +20,24 @@ public class Renting {
         //Pantalla principal
         int opcion = 4;
         do{
-            menuPrincipal();
+            getMenu(PantallaPrincipal.BIENVENIDA, PantallaPrincipal.getMenuPrincipal());
+            
             
         } while(opcion != 4);
 
         /*
-        String bienvenida = String.format("%70s\n", "Bienvenido a su Tienda favorita de Alquiler de Video Juegos");
+        String encabezado = String.format("%70s\n", "Bienvenido a su Tienda favorita de Alquiler de Video Juegos");
         String encabezadoVistaConsola = String.format("%-30s %-14s Estanteria\n", "Juegos", "Unidades");
         String encabezadoCodigoJuego = String.format("\n%65s", "Favor introducir el código del video juego: over-234p");
         */
         
     }
     
-    public static void menuPrincipal() {
-        String bienvenida = String.format("\n%70s\n", PantallaPrincipal.BIENVENIDA);
-        System.out.println(bienvenida);
+    public static void getMenu(String encabezadoMenu, String[] menu) {
+        String encabezado = String.format("\n%70s\n", encabezadoMenu);
+        System.out.println(encabezado);
         
         //menu
-        String[] menu = PantallaPrincipal.getMenuPrincipal();
         for(String opcion : menu) {
             System.out.println(opcion);
         }        

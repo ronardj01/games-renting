@@ -5,7 +5,9 @@ package ui;
  * @author tonym
  */
 public abstract class PantallaConsultaPrincipal {
-
+    
+    public static final String ENCABEZADO = "Lista de Video Juegos Disponibles";
+    
     public static String[] getMenu() {
         String[] menu = {
             "0. ->> Buscar por nombre. ",
