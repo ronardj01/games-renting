@@ -16,13 +16,18 @@ public class Alquiler {
     private int id_ejemplar;
     private int id_usuario;
 
+    private final LocalDate FECHA_RENTA = LocalDate.now();
+    private final LocalDate FECHA_DEVOLUCION = this.fecha_renta.plusDays(10);
+
     //consturctores
     public Alquiler() {
+        this.fecha_renta = this.FECHA_RENTA;
+        this.fecha_devolucion = this.FECHA_DEVOLUCION;
     }
 
-    public Alquiler(LocalDate fecha_renta, LocalDate fecha_devolucion, int id_ejemplar, int id_usuario) {
-        this.fecha_renta = fecha_renta;
-        this.fecha_devolucion = fecha_devolucion;
+    public Alquiler(int id_ejemplar, int id_usuario) {
+        this.fecha_renta = this.FECHA_RENTA;
+        this.fecha_devolucion = this.FECHA_DEVOLUCION;
         this.id_ejemplar = id_ejemplar;
         this.id_usuario = id_usuario;
     }
@@ -82,5 +87,5 @@ public class Alquiler {
     public String toString() {
         return "Alquiler{" + "idalquiler=" + idalquiler + ", fecha_renta=" + fecha_renta + ", fecha_devolucion=" + fecha_devolucion + ", fecha_retorno=" + fecha_retorno + ", id_ejemplar=" + id_ejemplar + ", id_usuario=" + id_usuario + '}';
     }
-    
+
 }
