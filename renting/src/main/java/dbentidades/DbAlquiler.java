@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 public class DbAlquiler {
 
     private static Statement alquiler = DbConnection.STATEMENT;
-
+    
     public static Alquiler getPorUsuario(int id_usuario) {
         Alquiler miAlquiler = new Alquiler();
         ResultSet resultado;
