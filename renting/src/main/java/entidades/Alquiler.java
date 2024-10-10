@@ -17,17 +17,16 @@ public class Alquiler {
     private int id_usuario;
 
     private final LocalDate FECHA_RENTA = LocalDate.now();
-    private final LocalDate FECHA_DEVOLUCION = this.fecha_renta.plusDays(10);
 
     //consturctores
     public Alquiler() {
         this.fecha_renta = this.FECHA_RENTA;
-        this.fecha_devolucion = this.FECHA_DEVOLUCION;
+        this.fecha_devolucion = this.FECHA_RENTA.plusDays(10);
     }
 
     public Alquiler(int id_ejemplar, int id_usuario) {
         this.fecha_renta = this.FECHA_RENTA;
-        this.fecha_devolucion = this.FECHA_DEVOLUCION;
+        this.fecha_devolucion = this.FECHA_RENTA.plusDays(10);
         this.id_ejemplar = id_ejemplar;
         this.id_usuario = id_usuario;
     }
