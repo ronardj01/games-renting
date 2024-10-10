@@ -14,6 +14,7 @@ public class DbEjemplar {
 
     private static Statement ejemplarStatement = DbConnection.STATEMENT;
 
+    //BUSCAR EJEMPLAR POR CODIGO
     public static Ejemplar getEjemplarByCodigo(String codigo) {
         Ejemplar miEjemplar = new Ejemplar();
         ResultSet resultado;
@@ -35,7 +36,30 @@ public class DbEjemplar {
         }
         return miEjemplar;
     }
+    
+    //BUSCAR NOMBRE DE EJEMPLAR POR CODIGO HACIENDO JOIN CON TABLA JUEGOS
+    public static String getCopyNamebyCode(String codigo) {
+        String titulo = "";
+        ResultSet resultado;
+        String query = "SELECT j.titulo, e.idejemplar FROM ejemplares e "
+                + "JOIN juegos j ON j.idjuego = e.id_juego "
+                + "WHERE e.codigo = '"+codigo+"'";
 
+        try {
+            resultado = ejemplarStatement.executeQuery(query);
+            while (resultado.next()) {
+                
+                titulo = resultado.getString("titulo");              
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return titulo;
+        
+    }
+
+    //BUSCAR EJEMPLAR POR ESTADO DE RENTADO
     public static ArrayList<Ejemplar> getEjemplarByRent(int rentado) {
         ArrayList<Ejemplar> misEjemplares = new ArrayList<>();
 
@@ -63,6 +87,7 @@ public class DbEjemplar {
         return misEjemplares;
     }
 
+    //INSERTAR NUEVO EJEMPLAR A LA BD
     public static void insertNewEjemplar(Ejemplar newEjemplar) throws SQLException {
         String query = "INSERT INTO `overlord`.`ejemplares` (`codigo`, `rentado`, `id_consola`, `id_juego`)"
                 + " VALUES ('" + newEjemplar.getCodigo() + "', '"
