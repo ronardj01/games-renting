@@ -89,8 +89,6 @@ public class DbAlquiler {
                 + newAlquiler.getFecha_devolucion() + "', '"
                 + newAlquiler.getId_ejemplar() + "', '"
                 + newAlquiler.getId_usuario() + "')";
-
-
         
         alquiler.executeUpdate(query);
     }

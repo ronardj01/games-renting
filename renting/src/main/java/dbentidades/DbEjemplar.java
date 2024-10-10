@@ -17,7 +17,8 @@ public class DbEjemplar {
     public static Ejemplar getEjemplarByCodigo(String codigo) {
         Ejemplar miEjemplar = new Ejemplar();
         ResultSet resultado;
-        String query = "SELECT e.idejemplar, e.codigo, e.rentado, e.id_consola, e.id_juego FROM ejemplares e"
+        String query = "SELECT e.idejemplar, e.codigo, e.rentado, e.id_consola, e.id_juego"
+                + " FROM ejemplares e"
                 + " WHERE e.codigo = '" + codigo + "'";
 
         try {
