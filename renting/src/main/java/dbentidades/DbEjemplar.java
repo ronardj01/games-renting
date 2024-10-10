@@ -36,27 +36,27 @@ public class DbEjemplar {
         }
         return miEjemplar;
     }
-    
+
     //BUSCAR NOMBRE DE EJEMPLAR POR CODIGO HACIENDO JOIN CON TABLA JUEGOS
     public static String getCopyNamebyCode(String codigo) {
         String titulo = "";
         ResultSet resultado;
         String query = "SELECT j.titulo, e.idejemplar FROM ejemplares e "
                 + "JOIN juegos j ON j.idjuego = e.id_juego "
-                + "WHERE e.codigo = '"+codigo+"'";
+                + "WHERE e.codigo = '" + codigo + "'";
 
         try {
             resultado = ejemplarStatement.executeQuery(query);
             while (resultado.next()) {
-                
-                titulo = resultado.getString("titulo");              
+
+                titulo = resultado.getString("titulo");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return titulo;
-        
+
     }
 
     //BUSCAR EJEMPLAR POR ESTADO DE RENTADO
@@ -95,6 +95,15 @@ public class DbEjemplar {
                 + newEjemplar.getIdConsola() + "', '"
                 + newEjemplar.getIdJuego() + "')";
 
+        ejemplarStatement.executeUpdate(query);
+    }
+
+    //ACTULIZAR ESTADO DE RENTADO A EJEMPLAR
+    public static void updateRentField(int estado, int idejemplar) throws SQLException {
+        String query = "UPDATE `overlord`.`ejemplares`"
+                + " SET `rentado` = '" + estado + "' "
+                + "WHERE (`idejemplar` = '" + idejemplar + "')";
+        
         ejemplarStatement.executeUpdate(query);
     }
 }
