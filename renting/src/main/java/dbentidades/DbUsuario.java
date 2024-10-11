@@ -4,6 +4,7 @@
  */
 package dbentidades;
 
+import entidades.Usuario;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -15,20 +16,22 @@ public class DbUsuario {
 
     private static Statement usuarioStatement = DbConnection.STATEMENT;
 
-    public static void getUsuario(String correo, String password) {
-        // Usuario usuario = Usuario();
+    public static Usuario getUsuarioByCorreoAndPass(String correo, String pass) {
+        Usuario miUsuario = new Usuario();
         ResultSet resultado;
 
         String query = "SELECT * FROM usuarios WHERE correo = 'correo'"
-                + " AND password = 'password'";
+                + " AND password = 'pass'";
         try {
             resultado = usuarioStatement.executeQuery(query);
             while (resultado.next()) {
-                System.out.println("Inicio de sesion exitoso");
+                miUsuario.getIdusuario(resultado.getInt("idusario"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return miUsuario;
     }
 
 }

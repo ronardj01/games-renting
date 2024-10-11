@@ -58,6 +58,11 @@ public class Usuario {
     }
 
     //setters
+    
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
