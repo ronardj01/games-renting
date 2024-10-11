@@ -42,8 +42,7 @@ public class DbUsuario {
     }
 
     // METODO PARA LOGEAR USUARIO
-    public static boolean isLogged(String correo, String pass) {
-        Usuario miUsuario = DbUsuario.getUsuarioByCorreoAndPass(correo, pass);
+    public static boolean verificarCredenciales(String correo, String pass, Usuario miUsuario) {
         boolean resultado = correo.equals(miUsuario.getCorreo()) && pass.equals(miUsuario.getPassword());
         return resultado;
     }

@@ -31,9 +31,10 @@ public class DbVistaAlquiler {
         int opcion;
         int id_ejemplar;
         int RENTADO = 1;
-        int id_usuario = 1; //Hardcode
+        int id_usuario;
         int intentosLoggIn = 0;
         boolean loggedIn = false;
+        Usuario miUsuario;
 
         //buscar titulo del juego
         titulo = DbEjemplar.getCopyNamebyCode(codigo);
@@ -54,8 +55,12 @@ public class DbVistaAlquiler {
 
                     System.out.print("Favor introducir su contraseña: ");
                     passUsuario = scanner.nextLine();
+                    
+                    //buscar usuario
+                    miUsuario = DbUsuario.getUsuarioByCorreoAndPass(correoUsuario, passUsuario);
 
-                    loggedIn = DbUsuario.isLogged(correoUsuario, passUsuario);
+                    //confirmar credenciales del usuario
+                    loggedIn = DbUsuario.verificarCredenciales(correoUsuario, passUsuario, miUsuario);
 
                     if (!loggedIn) {
                         System.out.println("\nContraseña o usuario incorrecto");
@@ -69,6 +74,9 @@ public class DbVistaAlquiler {
                     //buscar ejemplar 
                     Ejemplar miEjemplar = DbEjemplar.getEjemplarByCodigo(codigo);
                     id_ejemplar = miEjemplar.getIdEjemplar();
+                    
+                    //obtener idusuario
+                    id_usuario = miUsuario.getIdusuario();
 
                     //crear alquiler
                     Alquiler miAlquiler = new Alquiler(id_ejemplar, id_usuario);
