@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author tonym
  */
 public class DbVistaAlquiler {
-    
+
     private static Statement vistaPorAlquilerStatement = DbConnection.STATEMENT;
 
     //GENERAR VISTA ALQUILER
@@ -26,55 +26,82 @@ public class DbVistaAlquiler {
         String titulo;
         String fecha_renta;
         String fecha_devolucion;
+        String correoUsuario;
+        String passUsuario;
         int opcion;
         int id_ejemplar;
         int RENTADO = 1;
         int id_usuario = 1; //Hardcode
+        int intentosLoggIn = 0;
+        boolean loggedIn = false;
 
         //buscar titulo del juego
         titulo = DbEjemplar.getCopyNamebyCode(codigo);
-        
+
         if (!titulo.isEmpty()) {
 
             //imprimir titulo y opciones para alquilar
             System.out.printf("\n\t%-35s | %-12s | %-12s |", titulo, "1. Alquilar", " 2. Cancelar");
             System.out.print("\nElija una opción: ");
             opcion = scanner.nextInt();
-            
+
             if (opcion == 1) {
-                //buscar ejemplar 
-                Ejemplar miEjemplar = DbEjemplar.getEjemplarByCodigo(codigo);
-                id_ejemplar = miEjemplar.getIdEjemplar();
+                //log in de usuario
+                scanner.nextLine(); //Limpiar buffer
+                do {
+                    System.out.print("Favor introducir correo electronico: ");
+                    correoUsuario = scanner.nextLine();
 
-                //crear alquiler
-                Alquiler miAlquiler = new Alquiler(id_ejemplar, id_usuario);
+                    System.out.print("Favor introducir su contraseña: ");
+                    passUsuario = scanner.nextLine();
 
-                //formatear fecha para que sea amigable con el usuario
-                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                fecha_renta = miAlquiler.getFecha_renta().format(formato);
-                fecha_devolucion = miAlquiler.getFecha_devolucion().format(formato);
-                
-                try {
-                    //enviar aquiler a la base de datos
-                    DbAlquiler.insertNewAlquiler(miAlquiler);
-                    System.out.printf("\n%16s %22s %22s", "Juegos", "Fecha_Renta", "Fecha_Devolución");
-                    System.out.printf("\n%16s %16s %18s", titulo, fecha_renta, fecha_devolucion);
-                    
-                    //Actualizar estado rentado a true
-                    DbEjemplar.updateRentField(RENTADO, id_ejemplar);
-                    System.out.println("\n-----------------------------------------------------------------------");
-                    System.out.println("\n\tDisfruta del Juego!");
-                    
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                    System.out.println("No es posible crear el Alquilar");
+                    loggedIn = DbUsuario.isLogged(correoUsuario, passUsuario);
+
+                    if (!loggedIn) {
+                        System.out.println("\nContraseña o usuario incorrecto");
+                        intentosLoggIn ++;
+                        System.out.println(intentosLoggIn);
+                    }
+
+                } while (!(intentosLoggIn > 2 && loggedIn) && !(intentosLoggIn > 2) && !loggedIn);
+
+                if (loggedIn) {
+                    //buscar ejemplar 
+                    Ejemplar miEjemplar = DbEjemplar.getEjemplarByCodigo(codigo);
+                    id_ejemplar = miEjemplar.getIdEjemplar();
+
+                    //crear alquiler
+                    Alquiler miAlquiler = new Alquiler(id_ejemplar, id_usuario);
+
+                    //formatear fecha para que sea amigable con el usuario
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    fecha_renta = miAlquiler.getFecha_renta().format(formato);
+                    fecha_devolucion = miAlquiler.getFecha_devolucion().format(formato);
+
+                    try {
+                        //enviar aquiler a la base de datos
+                        DbAlquiler.insertNewAlquiler(miAlquiler);
+                        System.out.printf("\n%16s %22s %22s", "Juegos", "Fecha_Renta", "Fecha_Devolución");
+                        System.out.printf("\n%16s %16s %18s", titulo, fecha_renta, fecha_devolucion);
+
+                        //Actualizar estado rentado a true
+                        DbEjemplar.updateRentField(RENTADO, id_ejemplar);
+                        System.out.println("\n-----------------------------------------------------------------------");
+                        System.out.println("\n\tDisfruta del Juego!");
+
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                        System.out.println("No es posible crear el Alquilar");
+                    }
+                } else {
+                    System.out.println("Contraseña o usuario incorrecto y ha exedido el limite de intentos fallidos!!");
                 }
-                
+
             }
         } else {
             System.out.println("El código introducido no es valido");
         }
-        
+
         scanner.nextLine();
     }
 }
