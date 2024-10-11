@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class DbUsuario {
 
     private static Statement usuarioStatement = DbConnection.STATEMENT;
-    
+
     public static Usuario getUsuarioByCorreoAndPass(String correo, String pass) {
         Usuario miUsuario = new Usuario();
         ResultSet resultado;
@@ -40,17 +40,12 @@ public class DbUsuario {
 
         return miUsuario;
     }
-    
+
     // METODO PARA LOGEAR USUARIO
-    public static boolean isLogged(String correo, String pass){
-        boolean resultado = false;
+    public static boolean isLogged(String correo, String pass) {
         Usuario miUsuario = DbUsuario.getUsuarioByCorreoAndPass(correo, pass);
-        if(miUsuario.getCorreo().equals(correo) && miUsuario.getPassword().equals(pass)){
-        resultado = true;
-        
-        }
+        boolean resultado = correo.equals(miUsuario.getCorreo()) && pass.equals(miUsuario.getPassword());
         return resultado;
-    
     }
 
 }
