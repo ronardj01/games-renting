@@ -20,12 +20,19 @@ public class DbUsuario {
         Usuario miUsuario = new Usuario();
         ResultSet resultado;
 
-        String query = "SELECT * FROM usuarios WHERE correo = 'correo'"
-                + " AND password = 'pass'";
+        String query = "SELECT * FROM usuarios WHERE correo = '" + correo + "'"
+                + " AND password = '" + pass + "'";
         try {
             resultado = usuarioStatement.executeQuery(query);
             while (resultado.next()) {
-                miUsuario.getIdusuario(resultado.getInt("idusario"));
+                miUsuario.setIdusuario(resultado.getInt("idusuario"));
+                miUsuario.setNombre(resultado.getString("nombre"));
+                miUsuario.setApellidos(resultado.getString("apellidos"));
+                miUsuario.setCorreo(resultado.getString("correo"));
+                miUsuario.setDireccion(resultado.getString("direccion"));
+                miUsuario.setTelefono(resultado.getString("telefono"));
+                miUsuario.setPassword(resultado.getString("password"));
+
             }
         } catch (Exception e) {
             e.printStackTrace();
