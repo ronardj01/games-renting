@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dbentidades;
 
 import entidades.Usuario;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -68,6 +66,20 @@ public class DbUsuario {
             e.getStackTrace();
         }
         return miUsuario;
+    }
+    
+    // METODO PARA INSERTAR USUARIO
+    public static void insertUsuario(Usuario newUsuario) throws SQLException{
+        String query = "INSERT INTO `overlord`.`usuarios` (`nombre`, `apellidos`, `correo`, `direccion`, `telefono`, `password`) "
+                + "VALUES ('"+ newUsuario.getNombre() +
+                "', '" + newUsuario.getApellidos() +
+                "', '"+ newUsuario.getCorreo() +
+                "', '" + newUsuario.getDireccion() +
+                "', '" + newUsuario.getTelefono() +
+                "', '" + newUsuario.getPassword() + "')";
+                usuarioStatement.executeUpdate(query);
+        
+    
     }
     
 }
