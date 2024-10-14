@@ -1,0 +1,13 @@
+			Contraseña incorrecta
+
+Elija una opción: 1
+
+Favor introducir correo electronico: francisco@ejemplo.com
+Favor introducir su contraseña: 12345
+
+	Contraseña o usuario incorrecto
+
+-------------------------------------------------------------------------------
+
+
+Favor introducir correo electronico: 

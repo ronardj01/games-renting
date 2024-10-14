@@ -1,0 +1,17 @@
+                   PANTALLA BUSQUEDA NOMBRE
+
+                    *** O V E R L O R D ***
+
+Favor introducir nombre de video Juego: God of War
+------------------------------------------------------------------------------------
+| Juegos                         | Consola            | Estanteria      | Unidades |
+------------------------------------------------------------------------------------
+| God of War Ragnar k            | Play Station 5     | 001-010         |    2     |
+------------------------------------------------------------------------------------
+| God of War Ragnar k            | Play Station 4     | 001-010         |    3     |
+------------------------------------------------------------------------------------
+                                             Favor Elegir una opción: 
+
+1->> Hacer nueva Busqueda. 
+2->> Volver al Men  Anterior.
+Selecione una opci n: 

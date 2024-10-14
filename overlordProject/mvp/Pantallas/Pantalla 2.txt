@@ -1,0 +1,16 @@
+                   PANTALLA CONSULTA PRINCIPAL
+
+                  *** O V E R L O R D ***
+
+
+                                     Lista de Video Juegos Disponibles
+
+1. ->> Buscar por nombre. 
+2. ->> Juegos de PS4. 
+3. ->> Juegos de PS5.
+4. ->> Juegos de XBOX.
+5. ->> Juegos de Nintendo.
+6. ->> Juegos de PC.
+7. ->> Juegos Consolas Retro.
+0. ->> Volver al Men  Principal.
+favor introducir una opcion de busqueda: 

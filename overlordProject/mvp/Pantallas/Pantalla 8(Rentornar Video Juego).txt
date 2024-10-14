@@ -1,0 +1,10 @@
+			*** O V E R L O R D ***
+
+
+                             Rentornar Video Juego
+                Favor introducir el c digo del video juego: over-10010
+
+	God of War Ragnarók                 | 1. Retornar  |  2. Cancelar |
+-------------------------------------------------------------------------------
+
+	Elija una opción: 1

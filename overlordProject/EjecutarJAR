@@ -1,0 +1,22 @@
+INDICAR RUTAS PARA PODER EJECUTAR EL PROGRAMA (se debe estar en el directorio donde se encuentra .jar genrado por el build)
+
+SE EJECUTA INDICANDO DONDE ESTA EL .JAR PERO NO ME APARECEN LAS DEPENDENCIAS  
+java -cp renting-1.0-SNAPSHOT.jar com.mycompany.renting.Renting
+
+SE EJECUTA SI EL .JAR Y LAS DEPENDENCIAS ESTAN EL MISMO DIRECTORIO
+java -cp renting-1.0-SNAPSHOT.jar:mysql-connector-java-8.0.30.jar com.mycompany.renting.Renting
+
+
+SE EJECUTA INDICANO LA RUTA DE LA DEPENDENCIAS TAMBIEN
+java -cp renting-1.0-SNAPSHOT.jar:/home/ronar/.m2/repository/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar com.mycompany.renting.Renting  LINUX
+
+
+
+java -cp renting/target/renting-1.0-SNAPSHOT.jar;/home/ronar/.m2/repository/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar com.mycompany.renting.Renting   WINDOWS
+
+
+
+RUTA DONDE ESTA LA DEPENDENCIA EN MI COMPUTADORA
+/home/ronar/.m2/repository/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar    Path para la dependencia
+
+

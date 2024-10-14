@@ -1,0 +1,6 @@
+			Iniciar sesión 
+
+Elija una opción: 1
+
+Favor introducir correo electronico: francisco@ejemplo.com
+Favor introducir su contraseña: 12345

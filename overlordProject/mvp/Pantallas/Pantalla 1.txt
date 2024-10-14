@@ -1,0 +1,20 @@
+
+                     *** O V E R L O R D ***
+
+           Bienvenido a su Tienda favorita de Alquiler de Video Juegos
+
+1 ->> Consultar Lista de Video Juegos.
+2 ->> Rentar Video Juegos.
+3 ->> Retornar Video Juegos.
+4 ->> SALIR <<-.
+
+Favor introduzca una opcion para ingresar: 
+
+
+
+
+
+
+
+
+
