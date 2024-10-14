@@ -88,7 +88,7 @@ CREATE TABLE `ejemplares` (
   KEY `FK_EJ_JUE_idx` (`id_juego`),
   CONSTRAINT `FK_EJ_CON` FOREIGN KEY (`id_consola`) REFERENCES `consolas` (`idconsola`),
   CONSTRAINT `FK_EJ_JUE` FOREIGN KEY (`id_juego`) REFERENCES `juegos` (`idjuego`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `ejemplares` (
 
 LOCK TABLES `ejemplares` WRITE;
 /*!40000 ALTER TABLE `ejemplares` DISABLE KEYS */;
-INSERT INTO `ejemplares` VALUES (1,'OVER-10001',0,1,1),(2,'OVER-10002',0,1,1),(3,'OVER-10003',0,1,2),(4,'OVER-10004',0,1,2),(5,'OVER-10005',0,1,8),(6,'OVER-10006',0,1,8),(7,'OVER-10007',0,1,9),(8,'OVER-10008',0,1,9),(9,'OVER-10009',0,1,10),(10,'OVER-10010',0,1,10),(11,'OVER-20001',0,2,1),(12,'OVER-20002',0,2,1),(13,'OVER-20003',0,2,1),(14,'OVER-20004',0,2,2),(15,'OVER-20005',0,2,2),(16,'OVER-20006',0,2,2),(17,'OVER-20007',0,2,8),(18,'OVER-20008',0,2,8),(19,'OVER-20009',0,2,8),(20,'OVER-20010',0,2,9),(21,'OVER-20011',0,2,9),(22,'OVER-20012',0,2,9),(23,'OVER-20013',0,2,10),(24,'OVER-20014',0,2,10),(25,'OVER-20015',0,2,10),(26,'OVER-30001',0,3,4),(27,'OVER-30002',0,3,4),(28,'OVER-30003',0,3,5),(29,'OVER-30004',0,3,5),(30,'OVER-30005',0,3,12),(31,'OVER-30006',0,3,12),(32,'OVER-40001',0,4,3),(33,'OVER-40002',0,4,3),(34,'OVER-40003',0,4,3),(35,'OVER-40004',0,4,7),(36,'OVER-40005',0,4,7),(37,'OVER-40006',0,4,7),(38,'OVER-40007',0,4,14),(39,'OVER-40008',0,4,14),(40,'OVER-40009',0,4,14),(41,'OVER-50001',0,5,6),(42,'OVER-50002',0,5,6),(43,'OVER-50003',0,5,6),(44,'OVER-50004',0,5,13),(45,'OVER-50005',0,5,13),(46,'OVER-50006',0,5,13),(47,'OVER-50007',0,5,15),(48,'OVER-50008',0,5,15),(49,'OVER-50009',0,5,15);
+INSERT INTO `ejemplares` VALUES (1,'OVER-1000001',0,1,1),(2,'OVER-1000002',0,2,1),(3,'OVER-1000003',0,1,2),(4,'OVER-1000004',0,1,2),(5,'OVER-1000005',0,1,3),(6,'OVER-1000006',0,1,3),(7,'OVER-1000007',0,1,4),(8,'OVER-1000008',0,1,4),(9,'OVER-1000009',0,1,5),(10,'OVER-1000010',0,1,5),(11,'OVER-2000001',0,2,11),(12,'OVER-2000002',0,2,11),(13,'OVER-2000003',0,2,12),(14,'OVER-2000004',0,2,12),(15,'OVER-2000005',0,2,13),(16,'OVER-2000006',0,2,13),(17,'OVER-2000007',0,2,14),(18,'OVER-2000008',0,2,14),(19,'OVER-2000009',0,2,15),(20,'OVER-2000010',0,2,15),(21,'OVER-3000001',0,3,21),(22,'OVER-3000002',0,3,21),(23,'OVER-3000003',0,3,22),(24,'OVER-3000004',0,3,22),(25,'OVER-3000005',0,3,23),(26,'OVER-3000006',0,3,23),(27,'OVER-3000007',0,3,24),(28,'OVER-3000008',0,3,24),(29,'OVER-4000001',0,4,31),(30,'OVER-4000002',0,4,31),(31,'OVER-4000003',0,4,32),(32,'OVER-4000004',0,4,32),(33,'OVER-4000005',0,4,33),(34,'OVER-4000006',0,4,33),(35,'OVER-4000007',0,4,34),(36,'OVER-4000008',0,4,34),(37,'OVER-5000001',0,5,41),(38,'OVER-5000002',0,5,41),(39,'OVER-5000003',0,5,42),(40,'OVER-5000004',0,5,42),(41,'OVER-5000005',0,5,43),(42,'OVER-5000006',0,5,43),(43,'OVER-5000007',0,5,44),(44,'OVER-5000008',0,5,44),(45,'OVER-5000009',0,1,1);
 /*!40000 ALTER TABLE `ejemplares` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `juegos` (
   `genero` varchar(15) DEFAULT NULL,
   `estanteria` varchar(7) DEFAULT NULL,
   PRIMARY KEY (`idjuego`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `juegos` (
 
 LOCK TABLES `juegos` WRITE;
 /*!40000 ALTER TABLE `juegos` DISABLE KEYS */;
-INSERT INTO `juegos` VALUES (1,'The Last of Us Part II','Acción','001-001'),(2,'Spider-Man: Miles Morales','Aventura','001-002'),(3,'Halo Infinite','FPS','001-003'),(4,'Animal Crossing: New Horizons','Simulación','001-004'),(5,'The Legend of Zelda: Breath of the Wild','Aventura','001-005'),(6,'Cyberpunk 2077','RPG','001-006'),(7,'Forza Horizon 5','Carreras','001-007'),(8,'Ghost of Tsushima','Acción','001-008'),(9,'Resident Evil Village','Terror','001-009'),(10,'God of War Ragnarök','Aventura','001-010'),(11,'FIFA 24','Deportes','001-011'),(12,'Super Mario Odyssey','Plataformas','001-012'),(13,'Elden Ring','RPG','001-013'),(14,'Gears 5','Acción','001-014'),(15,'Hades','Roguelike','001-015');
+INSERT INTO `juegos` VALUES (1,'Demon\'s Souls','RPG',NULL),(2,'Spider-Man: Miles Morales','Acción',NULL),(3,'Ratchet & Clank: Rift Apart','Acción',NULL),(4,'Returnal','Acción',NULL),(5,'Gran Turismo 7','Carreras',NULL),(6,'Horizon Forbidden West','Aventura',NULL),(7,'Astro\'s Playroom','Plataformas',NULL),(8,'Final Fantasy XVI','RPG',NULL),(9,'Sackboy: A Big Adventure','Plataformas',NULL),(10,'Kena: Bridge of Spirits','Aventura',NULL),(11,'The Last of Us Part II','Acción',NULL),(12,'God of War','Acción',NULL),(13,'Bloodborne','RPG',NULL),(14,'Uncharted 4: A Thief\'s End','Aventura',NULL),(15,'Horizon Zero Dawn','Aventura',NULL),(16,'Ghost of Tsushima','Acción',NULL),(17,'Persona 5','RPG',NULL),(18,'Gran Turismo Sport','Carreras',NULL),(19,'Spider-Man','Acción',NULL),(20,'Red Dead Redemption 2','Aventura',NULL),(21,'The Legend of Zelda: Breath of the Wild','Aventura',NULL),(22,'Super Mario Odyssey','Plataformas',NULL),(23,'Mario Kart 8 Deluxe','Carreras',NULL),(24,'Animal Crossing: New Horizons','Simulación',NULL),(25,'Splatoon 2','Acción',NULL),(26,'Super Smash Bros. Ultimate','Pelea',NULL),(27,'Fire Emblem: Three Houses','Estrategia',NULL),(28,'Pokémon Sword and Shield','RPG',NULL),(29,'Luigi\'s Mansion 3','Aventura',NULL),(30,'Xenoblade Chronicles 2','RPG',NULL),(31,'Halo Infinite','Acción',NULL),(32,'Forza Horizon 5','Carreras',NULL),(33,'Gears 5','Acción',NULL),(34,'Fable','RPG',NULL),(35,'State of Decay 2','Simulación',NULL),(36,'Sea of Thieves','Aventura',NULL),(37,'Ori and the Will of the Wisps','Plataformas',NULL),(38,'Psychonauts 2','Plataformas',NULL),(39,'The Medium','Terror',NULL),(40,'Microsoft Flight Simulator','Simulación',NULL),(41,'Cyberpunk 2077','RPG',NULL),(42,'Valorant','Disparos',NULL),(43,'League of Legends','MOBA',NULL),(44,'Dota 2','MOBA',NULL),(45,'World of Warcraft','RPG',NULL),(46,'The Witcher 3: Wild Hunt','RPG',NULL),(47,'Counter-Strike: Global Offensive','Disparos',NULL),(48,'Among Us','Estrategia',NULL),(49,'Minecraft','Simulación',NULL),(50,'Starcraft II','Estrategia',NULL),(51,'Fortnite','Disparos',NULL),(52,'Apex Legends','Disparos',NULL),(53,'Call of Duty: Warzone','Disparos',NULL),(54,'Assassin\'s Creed Valhalla','Aventura',NULL),(55,'FIFA 23','Deportes',NULL),(56,'Madden NFL 23','Deportes',NULL),(57,'NBA 2K23','Deportes',NULL),(58,'Watch Dogs: Legion','Aventura',NULL),(59,'Rainbow Six Siege','Disparos',NULL),(60,'Far Cry 6','Acción',NULL),(61,'Hades','RPG',NULL),(62,'Celeste','Plataformas',NULL),(63,'Hollow Knight','Aventura',NULL),(64,'Cuphead','Plataformas',NULL),(65,'Stardew Valley','Simulación',NULL),(66,'Dead Cells','Acción',NULL),(67,'The Binding of Isaac','Acción',NULL),(68,'Slay the Spire','Estrategia',NULL),(69,'Undertale','RPG',NULL),(70,'Outer Wilds','Aventura',NULL);
 /*!40000 ALTER TABLE `juegos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-04 19:49:28
+-- Dump completed on 2024-10-04 19:11:57
