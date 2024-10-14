@@ -170,6 +170,7 @@ public class DbVistaAlquiler {
                 opcionRentar = scanner.nextInt();
 
                 switch (opcionRentar) {
+                    
                     case 1 -> {
                         // log in de usuario
                         scanner.nextLine(); // Limpiar buffer
@@ -226,26 +227,40 @@ public class DbVistaAlquiler {
                                 //ACTUALIZAR ALQUILER Y ACTUALIZAR ESTADO RETORNADO DEL EJEMPLAR
                                 //actualizar alquiler
                                 DbAlquiler.updateFechaRetorno(id_alquiler, miAlquiler.getFecha_retorno());
-                             
+
+                                System.out.println("---------------------------------------------------------------------------------");
+                                System.out.printf("| %-25s | %-12s | %-13s | %13s |\n", columnsNamesRetorno[0], columnsNamesRetorno[1], columnsNamesRetorno[2], columnsNamesRetorno[3]);
+                                System.out.println("-------------------------------------------------------------------------------");
+                                System.out.printf("| %-25s | %10s   | %14s   | %14s  |\n", titulo, fecha_renta, fecha_devolucion, dias_retraso);
+                                System.out.println("---------------------------------------------------------------------------------");
+
+                                //actualizar estado retornado del ejemplar
+                                rentado = 0;
+                                DbEjemplar.updateRentField(rentado, id_ejemplar);
+                                System.out.println("\n---------------------------------------------------------------------------------");
+                                System.out.println("\n\tGracias por Retornar el Juego!");
+
                             } catch (SQLException ex) {
                                 ex.printStackTrace();
+                                System.out.println("\n\tNo es posible Retornar el Juego");
                             }
-                            System.out.println("---------------------------------------------------------------------------------");
-                            System.out.printf("| %-25s | %-12s | %-13s | %13s |\n", columnsNamesRetorno[0], columnsNamesRetorno[1], columnsNamesRetorno[2], columnsNamesRetorno[3]);
-                            System.out.println("-------------------------------------------------------------------------------");
-                            System.out.printf("| %-25s | %10s   | %14s   | %14s  |\n", titulo, fecha_renta, fecha_devolucion, dias_retraso);
-                            System.out.println("---------------------------------------------------------------------------------");
 
                         } else {
                             System.out.println("\n\tContraseña o usuario incorrecto y ha exedido el limite de intentos fallidos!!");
                         }
 
                     }
+                    case 2 ->
+                        System.out.println("\n\tOperación cancelada\n");
+                    default ->
+                        System.out.println("\n\tLa opcion no es valida\n");
                 }
 
             } else {
                 System.out.println("\n\tEl código introducido no es valido");
             }
+            System.out.printf("\n\t[ %s \t%s] ", menuRetorno[0], menuRetorno[1]);
+            opcion = scanner.nextInt();
 
         } while (opcion != 2);
         scanner.nextLine();
