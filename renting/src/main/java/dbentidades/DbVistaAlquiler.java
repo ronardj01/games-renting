@@ -12,7 +12,8 @@ import ui.RentarVideoJuegos;
  */
 public class DbVistaAlquiler {
 
-  private static final String encabezado = RentarVideoJuegos.ENCABEZADO;
+  private static final String encabezadoAlquiler = RentarVideoJuegos.ENCABEZADO;
+  private static final String encabezadoRetorno
   private static String[] columnsNames = RentarVideoJuegos.ENCABEZADO_ARRAY;
   private static String[] menu = RentarVideoJuegos.Menu;
   
@@ -36,7 +37,7 @@ public class DbVistaAlquiler {
 
     do {
       if(opcion == 1) scanner.nextLine(); //Limpiar buffer
-      System.out.printf("\n%50s", encabezado);
+      System.out.printf("\n%50s", encabezadoAlquiler);
       System.out.printf("\n%60s", "Favor introducir el código del video juego: ");
       String codigo = scanner.nextLine();
 
