@@ -73,11 +73,14 @@ public class Renting {
           } while (opcionBusqueda != 0);
         }
         case 2 -> {
+          //  RENTAR VIDEO JUEGO
           scanner.nextLine(); //Limpiar buffer
+          System.out.println(companyName);
           DbVistaAlquiler.createViewRent(scanner);
         }
           
         case 3 ->
+          // RETORNAR VIDEO JUEGO
           System.out.print("Retornar Video Juego.");
 
       }

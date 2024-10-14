@@ -15,23 +15,24 @@ public class DbVistaAlquiler {
   private static final String encabezado = RentarVideoJuegos.ENCABEZADO;
   private static String[] columnsNames = RentarVideoJuegos.ENCABEZADO_ARRAY;
   private static String[] menu = RentarVideoJuegos.Menu;
+  
+    private static String titulo;
+    private static String fecha_renta;
+    private static String fecha_devolucion;
+    private static String correoUsuario;
+    private static String passUsuario;
+    private static int opcion = 0;
+    private static int opcionRentar;
+    private static int id_ejemplar;
+    private static int rentado;
+    private static int id_usuario;
+    private static int intentosLoggIn = 0;
+    private static boolean loggedIn = false;
+    private static Usuario miUsuario;
 
   // GENERAR VISTA ALQUILER
   public static void createViewRent(Scanner scanner) {
-    // varibales
-    String titulo;
-    String fecha_renta;
-    String fecha_devolucion;
-    String correoUsuario;
-    String passUsuario;
-    int opcion = 0;
-    int opcionRentar;
-    int id_ejemplar;
-    int RENTADO = 1;
-    int id_usuario;
-    int intentosLoggIn = 0;
-    boolean loggedIn = false;
-    Usuario miUsuario;
+    
 
     do {
       if(opcion == 1) scanner.nextLine(); //Limpiar buffer
@@ -105,7 +106,8 @@ public class DbVistaAlquiler {
                 System.out.println("-------------------------------------------------------------------------------");
 
                 // Actualizar estado rentado a true
-                DbEjemplar.updateRentField(RENTADO, id_ejemplar);
+                rentado = 1;
+                DbEjemplar.updateRentField(rentado, id_ejemplar);
                 System.out.println("\n-------------------------------------------------------------------------------");
                 System.out.println("\n\tDisfruta del Juego!");
 
